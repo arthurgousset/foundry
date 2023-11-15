@@ -23,6 +23,12 @@ Here are links to the commands you can run with each of these binaries:
 -   [`anvil` commands](https://book.getfoundry.sh/reference/anvil/)
 -   [`chisel` commands](https://book.getfoundry.sh/reference/chisel/)
 
+## Installation
+
+Running `foundryup` by itself will install the latest (nightly) [precompiled binaries](https://book.getfoundry.sh/getting-started/installation#precompiled-binaries): `forge`, `cast`, `anvil`, and `chisel`. See `foundryup --help` for more options, like installing from a specific version or commit.
+
+Source: [book.getfoundry.sh](https://book.getfoundry.sh/getting-started/installation)
+
 ## `cast`
 
 ### [`cast sig-event`](https://book.getfoundry.sh/reference/cast/cast-sig-event#cast-sig-event)
