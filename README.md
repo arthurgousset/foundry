@@ -38,9 +38,19 @@ Source: [book.getfoundry.sh](https://book.getfoundry.sh/reference/cast/cast-sig-
 ```sh
 $ cast sig-event "Transfer(address indexed from, address indexed to, uint256 amount)"
 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
+
+$ cast sig-event "event ValidatorGroupVoteActivated(address indexed account,address indexed group,uint256 value,uint256 units)"
+0x45aac85f38083b18efe2d441a65b9c1ae177c78307cb5a5d4aec8f7dbcaeabfe
 ```
 
-For example, when filtering event logs using `topic0`.
+For example, when filtering event logs using `topic0` on [dune.com](https://dune.com/).
+
+```sql
+SELECT *
+FROM celo.logs
+WHERE contract_address = 0x8d6677192144292870907e3fa8a5527fe55a7ff6 -- ElectionProxy
+    AND topic0 = 0x45aac85f38083b18efe2d441a65b9c1ae177c78307cb5a5d4aec8f7dbcaeabfe -- ValidatorGroupVoteActivated
+```
 
 
 ### Convert decimal to hex 
