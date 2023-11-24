@@ -31,12 +31,39 @@ Source: [book.getfoundry.sh](https://book.getfoundry.sh/getting-started/installa
 
 ## `cast`
 
-### [`cast sig-event`](https://book.getfoundry.sh/reference/cast/cast-sig-event#cast-sig-event)
+### Generate event signature
 
-Generates event signatures from event string.
-For example, get the hash for the log 
-`Transfer(address indexed from, address indexed to, uint256 amount)`
+Source: [book.getfoundry.sh](https://book.getfoundry.sh/reference/cast/cast-sig-event#cast-sig-event)
 
 ```sh
-cast sig-event "Transfer(address indexed from, address indexed to, uint256 amount)"
+$ cast sig-event "Transfer(address indexed from, address indexed to, uint256 amount)"
+0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
+```
+
+For example, when filtering event logs using `topic0`.
+
+
+### Convert decimal to hex 
+
+Source: [book.getfoundry.sh](https://book.getfoundry.sh/reference/cast/cast-to-hex#cast-to-hex)
+
+```sh
+$ cast to-hex "22584960"
+0x1589e80
+```
+
+For example, block numbers must be in hex representation in JSON-RPC requests:
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "eth_getLogs",
+    "params": [
+        {
+            "fromBlock": "0x1589e80",
+            "toBlock": "0x1589e80"
+        }
+    ],
+    "id": 0
+}
 ```
