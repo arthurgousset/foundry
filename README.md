@@ -77,3 +77,9 @@ For example, block numbers must be in hex representation in JSON-RPC requests:
     "id": 0
 }
 ```
+
+## Deploy contract 
+
+```sh
+forge create [OPTIONS] `<path>:<contractname>` 
+```
