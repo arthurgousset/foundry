@@ -78,6 +78,22 @@ For example, block numbers must be in hex representation in JSON-RPC requests:
 }
 ```
 
+### Convert number (from one base) to decimal
+
+Source: [book.getfoundry.sh](https://book.getfoundry.sh/reference/cast/cast-to-dec)
+
+```sh
+$ cast to-dec "0x0000000000000000000000000000000000000000000000000000000000000012"                                                        
+18
+```
+
+For example, convert result of a contract read call into decimal:
+
+```sh
+$ cast call 0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1 "decimals()" --rpc-url='https://alfajores-forno.celo-testnet.org' | cast to-dec
+18
+```
+
 ## Deploy contract 
 
 ```sh
