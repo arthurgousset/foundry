@@ -78,6 +78,29 @@ For example, block numbers must be in hex representation in JSON-RPC requests:
 }
 ```
 
+### Convert number (from one base) to decimal
+
+Source: [book.getfoundry.sh](https://book.getfoundry.sh/reference/cast/cast-to-dec)
+
+```sh
+$ cast to-dec "0x0000000000000000000000000000000000000000000000000000000000000012"                                                        
+18
+```
+
+For example, convert result of a contract read call into decimal:
+
+```sh
+$ cast call 0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1 "decimals()" --rpc-url='https://alfajores-forno.celo-testnet.org' | cast to-dec
+18
+```
+
+### Deploy contract 
+
+```sh
+forge create [OPTIONS] `<path>:<contractname>` 
+```
+
+
 ### Call smart contract function
 
 Call the `getWhitelist()` function on the [`FeeCurrencyWhitelist.sol`](https://github.com/celo-org/celo-monorepo/blob/cc8c3448938f7ff3e1f4e7a5ab692904729dcdc9/packages/protocol/contracts/common/FeeCurrencyWhitelist.sol#L4) contract deployed at [`0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c`](https://celoscan.io/address/0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c).
@@ -89,3 +112,4 @@ $ cast call 0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c "getWhitelist() (address[
 
 > [!TIP]
 > Find RPC URLs for Celo at [docs.celo.org/network/node/forno](https://docs.celo.org/network/node/forno)https://docs.celo.org/network/node/forno
+
