@@ -94,13 +94,6 @@ $ cast call 0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1 "decimals()" --rpc-url='h
 18
 ```
 
-### Deploy contract 
-
-```sh
-forge create [OPTIONS] `<path>:<contractname>` 
-```
-
-
 ### Call smart contract function
 
 Call the `getWhitelist()` function on the [`FeeCurrencyWhitelist.sol`](https://github.com/celo-org/celo-monorepo/blob/cc8c3448938f7ff3e1f4e7a5ab692904729dcdc9/packages/protocol/contracts/common/FeeCurrencyWhitelist.sol#L4) contract deployed at [`0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c`](https://celoscan.io/address/0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c).
@@ -113,3 +106,52 @@ $ cast call 0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c "getWhitelist() (address[
 > [!TIP]
 > Find RPC URLs for Celo at [docs.celo.org/network/node/forno](https://docs.celo.org/network/node/forno)https://docs.celo.org/network/node/forno
 
+### Get event logs 
+
+Source: [`cast logs`](https://book.getfoundry.sh/reference/cast/cast-logs)
+
+```sh
+$ cast logs --rpc-url 'https://forno.celo.org' 'event ValidatorEpochPaymentDistributed(address indexed validator, uint256 validatorPayment, address indexed group, uint256 groupPayment)' --from-block 24883200 --to-block 24883200 
+```
+
+Example response: 
+
+```sh
+# ...
+- address: 0xaEb865bCa93DdC8F47b8e29F40C5399cE34d0C58
+  blockHash: 0xc4c566ca9e7a494567f5076d0cd814fc6cd8408d5a675959efc8fc2ca9126a70
+  blockNumber: 24883200
+  data: 0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004fe01f72f47dbef70
+  logIndex: 453
+  removed: false
+  topics: [
+        0x6f5937add2ec38a0fa4959bccd86e3fcc2aafb706cd3e6c0565f87a7b36b9975
+        0x000000000000000000000000e8302a78c4eb56ac1cd1d6aee25719dc54c63e59
+        0x000000000000000000000000d25c6a9fef4744e8d4f90bf6bdfaf7686909d799
+  ]
+  transactionHash: 0xc4c566ca9e7a494567f5076d0cd814fc6cd8408d5a675959efc8fc2ca9126a70
+  transactionIndex: 7
+- address: 0xaEb865bCa93DdC8F47b8e29F40C5399cE34d0C58
+  blockHash: 0xc4c566ca9e7a494567f5076d0cd814fc6cd8408d5a675959efc8fc2ca9126a70
+  blockNumber: 24883200
+  data: 0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004f5e53ac258c8b63c
+  logIndex: 456
+  removed: false
+  topics: [
+        0x6f5937add2ec38a0fa4959bccd86e3fcc2aafb706cd3e6c0565f87a7b36b9975
+        0x000000000000000000000000989f3f2684f96b8cdec308b4e7538a5a062890f0
+        0x000000000000000000000000d25c6a9fef4744e8d4f90bf6bdfaf7686909d799
+  ]
+  transactionHash: 0xc4c566ca9e7a494567f5076d0cd814fc6cd8408d5a675959efc8fc2ca9126a70
+  transactionIndex: 7
+# ...
+```
+
+
+## `forge` 
+
+### Deploy contract 
+
+```sh
+forge create [OPTIONS] `<path>:<contractname>` 
+```
