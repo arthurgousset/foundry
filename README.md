@@ -1,31 +1,33 @@
 # Foundry (Cheat Sheet)
 
-Foundry comes with four main binaries [`forge`](https://book.getfoundry.sh/forge), 
-[`cast`](https://book.getfoundry.sh/cast), [`anvil`](https://book.getfoundry.sh/anvil), 
-and [`chisel`](https://book.getfoundry.sh/chisel).
+Foundry comes with four main binaries [`forge`](https://book.getfoundry.sh/forge),
+[`cast`](https://book.getfoundry.sh/cast), [`anvil`](https://book.getfoundry.sh/anvil), and
+[`chisel`](https://book.getfoundry.sh/chisel).
 
 > Forge tests, builds, and deploys your smart contracts.
 
-> Cast is Foundry's command-line tool for performing Ethereum RPC calls. You can make smart 
-> contract calls, send transactions, or retrieve any type of chain data - all from your 
-> command-line!
+> Cast is Foundry's command-line tool for performing Ethereum RPC calls. You can make smart contract
+> calls, send transactions, or retrieve any type of chain data - all from your command-line!
 
-> Anvil is a local testnet node shipped with Foundry. You can use it for testing your 
-> contracts from frontends or for interacting over RPC.
+> Anvil is a local testnet node shipped with Foundry. You can use it for testing your contracts from
+> frontends or for interacting over RPC.
 
-> Chisel is an advanced Solidity REPL shipped with Foundry. It can be used to quickly test 
-> the behavior of Solidity snippets on a local or forked network.
+> Chisel is an advanced Solidity REPL shipped with Foundry. It can be used to quickly test the
+> behavior of Solidity snippets on a local or forked network.
 
 Here are links to the commands you can run with each of these binaries:
 
--   [`forge` commands](https://book.getfoundry.sh/reference/forge/) 
+-   [`forge` commands](https://book.getfoundry.sh/reference/forge/)
 -   [`cast` commands](https://book.getfoundry.sh/reference/cast/)
 -   [`anvil` commands](https://book.getfoundry.sh/reference/anvil/)
 -   [`chisel` commands](https://book.getfoundry.sh/reference/chisel/)
 
 ## Installation
 
-Running `foundryup` by itself will install the latest (nightly) [precompiled binaries](https://book.getfoundry.sh/getting-started/installation#precompiled-binaries): `forge`, `cast`, `anvil`, and `chisel`. See `foundryup --help` for more options, like installing from a specific version or commit.
+Running `foundryup` by itself will install the latest
+(nightly) [precompiled binaries](https://book.getfoundry.sh/getting-started/installation#precompiled-binaries): `forge`, `cast`, `anvil`,
+and `chisel`. See `foundryup --help` for more options, like installing from a specific version or
+commit.
 
 Source: [book.getfoundry.sh](https://book.getfoundry.sh/getting-started/installation)
 
@@ -33,7 +35,8 @@ Source: [book.getfoundry.sh](https://book.getfoundry.sh/getting-started/installa
 
 ### Generate event signature
 
-Source: [book.getfoundry.sh](https://book.getfoundry.sh/reference/cast/cast-sig-event#cast-sig-event)
+Source:
+[book.getfoundry.sh](https://book.getfoundry.sh/reference/cast/cast-sig-event#cast-sig-event)
 
 ```sh
 $ cast sig-event "Transfer(address indexed from, address indexed to, uint256 amount)"
@@ -52,8 +55,7 @@ WHERE contract_address = 0x8d6677192144292870907e3fa8a5527fe55a7ff6 -- ElectionP
     AND topic0 = 0x45aac85f38083b18efe2d441a65b9c1ae177c78307cb5a5d4aec8f7dbcaeabfe -- ValidatorGroupVoteActivated
 ```
 
-
-### Convert decimal to hex 
+### Convert decimal to hex
 
 Source: [book.getfoundry.sh](https://book.getfoundry.sh/reference/cast/cast-to-hex#cast-to-hex)
 
@@ -83,7 +85,7 @@ For example, block numbers must be in hex representation in JSON-RPC requests:
 Source: [book.getfoundry.sh](https://book.getfoundry.sh/reference/cast/cast-to-dec)
 
 ```sh
-$ cast to-dec "0x0000000000000000000000000000000000000000000000000000000000000012"                                                        
+$ cast to-dec "0x0000000000000000000000000000000000000000000000000000000000000012"
 18
 ```
 
@@ -96,25 +98,28 @@ $ cast call 0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1 "decimals()" --rpc-url='h
 
 ### Call smart contract function
 
-Call the `getWhitelist()` function on the [`FeeCurrencyWhitelist.sol`](https://github.com/celo-org/celo-monorepo/blob/cc8c3448938f7ff3e1f4e7a5ab692904729dcdc9/packages/protocol/contracts/common/FeeCurrencyWhitelist.sol#L4) contract deployed at [`0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c`](https://celoscan.io/address/0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c).
+Call the `getWhitelist()` function on the
+[`FeeCurrencyWhitelist.sol`](https://github.com/celo-org/celo-monorepo/blob/cc8c3448938f7ff3e1f4e7a5ab692904729dcdc9/packages/protocol/contracts/common/FeeCurrencyWhitelist.sol#L4)
+contract deployed at
+[`0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c`](https://celoscan.io/address/0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c).
 
 ```sh
 $ cast call 0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c "getWhitelist() (address[] memory)" --rpc-url='https://forno.celo.org'
 [0x765DE816845861e75A25fCA122bb6898B8B1282a, 0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73, 0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787, 0x73F93dcc49cB8A239e2032663e9475dd5ef29A08]
 ```
 
-> [!TIP]
-> Find RPC URLs for Celo at [docs.celo.org/network/node/forno](https://docs.celo.org/network/node/forno)https://docs.celo.org/network/node/forno
+> [!TIP] Find RPC URLs for Celo at
+> [docs.celo.org/network/node/forno](https://docs.celo.org/network/node/forno)https://docs.celo.org/network/node/forno
 
-### Get event logs 
+### Get event logs
 
 Source: [`cast logs`](https://book.getfoundry.sh/reference/cast/cast-logs)
 
 ```sh
-$ cast logs --rpc-url 'https://forno.celo.org' 'event ValidatorEpochPaymentDistributed(address indexed validator, uint256 validatorPayment, address indexed group, uint256 groupPayment)' --from-block 24883200 --to-block 24883200 
+$ cast logs --rpc-url 'https://forno.celo.org' 'event ValidatorEpochPaymentDistributed(address indexed validator, uint256 validatorPayment, address indexed group, uint256 groupPayment)' --from-block 24883200 --to-block 24883200
 ```
 
-Example response: 
+Example response:
 
 ```sh
 # ...
@@ -147,11 +152,35 @@ Example response:
 # ...
 ```
 
+### Get transaction receipt for a transaction
 
-## `forge` 
+Source:
+[`cast receipt`](https://book.getfoundry.sh/reference/cli/cast/receipt?highlight=receipt#cast-receipt)
 
-### Deploy contract 
+For example, to get transaction receipt of [`0xe6b1eda9...`](https://explorer.celo.org/alfajores/tx/0xe6b1eda941c32f65c129e286f875afc1c265683d01e1232c696d9ebb1ce9174a) on the Alfajores testnet.
 
 ```sh
-forge create [OPTIONS] `<path>:<contractname>` 
+$ cast receipt 0xe6b1eda941c32f65c129e286f875afc1c265683d01e1232c696d9ebb1ce9174a --rpc-url 'https://alfajores-forno.celo-testnet.org'
+
+blockHash               0xb820cfe19395b0652c54d5401e3dc6a1b62e6232fbc61c1d668c99056b08240f
+blockNumber             23389301
+contractAddress
+cumulativeGasUsed       362425
+effectiveGasPrice
+gasUsed                 81747
+logs                    [{"address":"0x2f25deb3848c207fc8e0c34035b3ba7fc157602b","topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","0x000000000000000000000000303c22e6ef01cba9d03259248863836cb91336d5","0x0000000000000000000000000000000000000000000000000000000000000000"],"data":"0x0000000000000000000000000000000000000000000000000000000000000487","blockHash":"0xb820cfe19395b0652c54d5401e3dc6a1b62e6232fbc61c1d668c99056b08240f","blockNumber":"0x164e475","transactionHash":"0xe6b1eda941c32f65c129e286f875afc1c265683d01e1232c696d9ebb1ce9174a","transactionIndex":"0x1","logIndex":"0x2","removed":false},{"address":"0x2f25deb3848c207fc8e0c34035b3ba7fc157602b","topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","0x000000000000000000000000303c22e6ef01cba9d03259248863836cb91336d5","0x0000000000000000000000005111a8caca3366389eeaaad8a49027d573588bbb"],"data":"0x0000000000000000000000000000000000000000000000000000000000002710","blockHash":"0xb820cfe19395b0652c54d5401e3dc6a1b62e6232fbc61c1d668c99056b08240f","blockNumber":"0x164e475","transactionHash":"0xe6b1eda941c32f65c129e286f875afc1c265683d01e1232c696d9ebb1ce9174a","transactionIndex":"0x1","logIndex":"0x3","removed":false},{"address":"0x2f25deb3848c207fc8e0c34035b3ba7fc157602b","topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","0x0000000000000000000000000000000000000000000000000000000000000000","0x000000000000000000000000303c22e6ef01cba9d03259248863836cb91336d5"],"data":"0x0000000000000000000000000000000000000000000000000000000000000487","blockHash":"0xb820cfe19395b0652c54d5401e3dc6a1b62e6232fbc61c1d668c99056b08240f","blockNumber":"0x164e475","transactionHash":"0xe6b1eda941c32f65c129e286f875afc1c265683d01e1232c696d9ebb1ce9174a","transactionIndex":"0x1","logIndex":"0x4","removed":false},{"address":"0x2f25deb3848c207fc8e0c34035b3ba7fc157602b","topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","0x000000000000000000000000303c22e6ef01cba9d03259248863836cb91336d5","0x0000000000000000000000001443326496c9775c50adc6e8a26ccb79ad4d00ff"],"data":"0x00000000000000000000000000000000000000000000000000000000000000cc","blockHash":"0xb820cfe19395b0652c54d5401e3dc6a1b62e6232fbc61c1d668c99056b08240f","blockNumber":"0x164e475","transactionHash":"0xe6b1eda941c32f65c129e286f875afc1c265683d01e1232c696d9ebb1ce9174a","transactionIndex":"0x1","logIndex":"0x5","removed":false},{"address":"0x2f25deb3848c207fc8e0c34035b3ba7fc157602b","topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","0x000000000000000000000000303c22e6ef01cba9d03259248863836cb91336d5","0x000000000000000000000000eaaff71ab67b5d0ef34ba62ea06ac3d3e2daaa38"],"data":"0x00000000000000000000000000000000000000000000000000000000000001bb","blockHash":"0xb820cfe19395b0652c54d5401e3dc6a1b62e6232fbc61c1d668c99056b08240f","blockNumber":"0x164e475","transactionHash":"0xe6b1eda941c32f65c129e286f875afc1c265683d01e1232c696d9ebb1ce9174a","transactionIndex":"0x1","logIndex":"0x6","removed":false}]
+logsBloom               0x00000000000000000001000800000400000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000020000000000830000000800000000800000000080000011000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000202000000000000008008000000000000000000000000000000000020000000000000000800000000000000000000000000000000000000000000000000
+root
+status                  1
+transactionHash         0xe6b1eda941c32f65c129e286f875afc1c265683d01e1232c696d9ebb1ce9174a
+transactionIndex        1
+type                    123
+```
+
+## `forge`
+
+### Deploy contract
+
+```sh
+forge create [OPTIONS] `<path>:<contractname>`
 ```
