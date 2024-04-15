@@ -157,7 +157,9 @@ Example response:
 Source:
 [`cast receipt`](https://book.getfoundry.sh/reference/cli/cast/receipt?highlight=receipt#cast-receipt)
 
-For example, to get transaction receipt of [`0xe6b1eda9...`](https://explorer.celo.org/alfajores/tx/0xe6b1eda941c32f65c129e286f875afc1c265683d01e1232c696d9ebb1ce9174a) on the Alfajores testnet.
+For example, to get transaction receipt of
+[`0xe6b1eda9...`](https://explorer.celo.org/alfajores/tx/0xe6b1eda941c32f65c129e286f875afc1c265683d01e1232c696d9ebb1ce9174a)
+on the Alfajores testnet.
 
 ```sh
 $ cast receipt 0xe6b1eda941c32f65c129e286f875afc1c265683d01e1232c696d9ebb1ce9174a --rpc-url 'https://alfajores-forno.celo-testnet.org'
@@ -175,6 +177,60 @@ status                  1
 transactionHash         0xe6b1eda941c32f65c129e286f875afc1c265683d01e1232c696d9ebb1ce9174a
 transactionIndex        1
 type                    123
+```
+
+### Call RPC methods
+
+Source: [`cast rpc`](https://book.getfoundry.sh/reference/cast/cast-rpc)
+
+Perform a simple JSON-RPC POST request for the given method and with the params.
+
+For example, for [`eth_getBlockByNumber`](https://www.quicknode.com/docs/celo/eth_getBlockByNumber),
+I use QuickNode's JSON-RPC documentation to check what params the method takes.
+
+```sh
+$ cast rpc eth_getBlockByNumber "0x164e475" "true" \
+--rpc-url https://alfajores-forno.celo-testnet.org | jq
+
+{
+  "baseFeePerGas": "0x12a05f200",
+  ...
+  "size": "0x4e9",
+  "stateRoot": "0xf56faac2ca299965f2c6e91f8430060cdae80892bf4392ace1b6770ea07c9abd",
+  "timestamp": "0x6610338c",
+  "totalDifficulty": "0x164e476",
+  "transactions": [
+    {
+      ...
+    },
+    {
+      "blockHash": "0xb820cfe19395b0652c54d5401e3dc6a1b62e6232fbc61c1d668c99056b08240f",
+      "blockNumber": "0x164e475",
+      "from": "0x303c22e6ef01cba9d03259248863836cb91336d5",
+      "gas": "0x23c90",
+      "gasPrice": null,
+      "maxFeePerGas": "0x2e90edd00",
+      "maxPriorityFeePerGas": "0x9502f900",
+      "feeCurrency": "0x4822e58de6f5e485ef90df51c41ce01721331dc0",
+      "gatewayFeeRecipient": null,
+      "gatewayFee": "0x0",
+      "hash": "0xe6b1eda941c32f65c129e286f875afc1c265683d01e1232c696d9ebb1ce9174a",
+      "input": "0xa9059cbb0000000000000000000000005111a8caca3366389eeaaad8a49027d573588bbb0000000000000000000000000000000000000000000000000000000000002710",
+      "nonce": "0x75",
+      "to": "0x2f25deb3848c207fc8e0c34035b3ba7fc157602b",
+      "transactionIndex": "0x1",
+      "value": "0x0",
+      "type": "0x7b",
+      "accessList": [],
+      "chainId": "0xaef3",
+      "v": "0x1",
+      "r": "0xcdb39723aa7e176d1a76f2ce54ac13f22d43d7adb43ba8afac8ec69c94b6a005",
+      "s": "0x66ad6afc907daa892c64ed38da35ff6ffebcd5b92a79940554e88dd4f381dfc3",
+      "ethCompatible": false
+    }
+  ],
+  "transactionsRoot": ...
+}
 ```
 
 ## `forge`
