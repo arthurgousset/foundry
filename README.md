@@ -233,6 +233,20 @@ $ cast rpc eth_getBlockByNumber "0x164e475" "true" \
 }
 ```
 
+### Get base fee from last block
+
+Source: [`cast base-fee`](https://book.getfoundry.sh/reference/cli/cast/base-fee)
+
+```sh
+$ cast base-fee -r https://alfajores-forno.celo-testnet.org
+5000000000
+```
+
+```sh
+$ cast base-fee -r https://forno.celo.org
+5000000000
+```
+
 ## `forge`
 
 ### Deploy contract
