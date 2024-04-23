@@ -80,7 +80,7 @@ For example, block numbers must be in hex representation in JSON-RPC requests:
 }
 ```
 
-### Convert number (from one base) to decimal
+### Convert hex to decimal
 
 Source: [book.getfoundry.sh](https://book.getfoundry.sh/reference/cast/cast-to-dec)
 
@@ -94,6 +94,63 @@ For example, convert result of a contract read call into decimal:
 ```sh
 $ cast call 0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1 "decimals()" --rpc-url='https://alfajores-forno.celo-testnet.org' | cast to-dec
 18
+```
+
+### Convert wei to ether/gwei
+
+Source: [`cast to-unit`](https://book.getfoundry.sh/reference/cli/cast/to-unit)
+
+Convert an ETH amount into another unit (ether, gwei or wei).
+
+```sh
+$ cast to-unit 5000000000 gwei
+5
+```
+
+For example:
+
+```sh
+$ cast base-fee -r https://alfajores-forno.celo-testnet.org
+5000000000
+
+$ cast to-unit 5000000000 gwei
+5
+```
+
+```sh
+$ curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":["0x4822e58de6f5e485eF90df51C41CE01721331dC0"],"id":1}' "https://alfajores-forno.celo-testnet.org/" | jq
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x203512c12"
+}
+
+$ cast to-dec "0x203512c12"
+8645585938
+
+$ cast to-unit 8645585938 gwei
+8.645585938
+```
+
+### Convert to ethers/gwei to wei
+
+Source: [`cast to-wei`](https://book.getfoundry.sh/reference/cli/cast/to-wei)
+
+Convert an ETH amount to wei.
+
+```sh
+$ cast to-wei 5 ether
+5000000000000000000
+```
+
+For example:
+
+```sh
+$ cast to-wei 5 gwei
+5000000000
+
+$ cast to-unit 5000000000 gwei
+5
 ```
 
 ### Call smart contract function
