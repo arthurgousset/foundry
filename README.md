@@ -132,7 +132,7 @@ $ cast to-unit 8645585938 gwei
 8.645585938
 ```
 
-### Convert ethers/gwei to wei
+### Convert ether/gwei to wei
 
 Source: [`cast to-wei`](https://book.getfoundry.sh/reference/cli/cast/to-wei)
 
