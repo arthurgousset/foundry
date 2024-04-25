@@ -1,6 +1,6 @@
 # Foundry (Cheat Sheet)
 
-> [!INFO]  
+> [!NOTE]  
 > This is a cheat sheet on Foundry (mostly notes-to-self). They are incomplete by default.
 
 Foundry has four main binaries:
