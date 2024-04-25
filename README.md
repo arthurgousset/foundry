@@ -1,26 +1,17 @@
 # Foundry (Cheat Sheet)
 
-Foundry comes with four main binaries [`forge`](https://book.getfoundry.sh/forge),
-[`cast`](https://book.getfoundry.sh/cast), [`anvil`](https://book.getfoundry.sh/anvil), and
-[`chisel`](https://book.getfoundry.sh/chisel).
+This is a cheat sheet on Foundry (mostly notes-to-self). They are incomplete by default.
 
-> Forge tests, builds, and deploys your smart contracts.
+Foundry has four main binaries:
 
-> Cast is Foundry's command-line tool for performing Ethereum RPC calls. You can make smart contract
-> calls, send transactions, or retrieve any type of chain data - all from your command-line!
-
-> Anvil is a local testnet node shipped with Foundry. You can use it for testing your contracts from
-> frontends or for interacting over RPC.
-
-> Chisel is an advanced Solidity REPL shipped with Foundry. It can be used to quickly test the
-> behavior of Solidity snippets on a local or forked network.
-
-Here are links to the commands you can run with each of these binaries:
-
--   [`forge` commands](https://book.getfoundry.sh/reference/forge/)
--   [`cast` commands](https://book.getfoundry.sh/reference/cast/)
--   [`anvil` commands](https://book.getfoundry.sh/reference/anvil/)
--   [`chisel` commands](https://book.getfoundry.sh/reference/chisel/)
+1.  [`cast`](https://book.getfoundry.sh/reference/cast/): a CLI for performing Ethereum RPC calls, smart
+    contract calls, send transactions, or retrieve any type of chain data.
+1.  [`forge`](https://book.getfoundry.sh/reference/forge/): a developer tool to test, build, and deploy smart
+    contracts.
+1.  [`anvil`](https://book.getfoundry.sh/reference/anvil/): a local testnet node for testing contracts from
+    frontends or for interacting over RPC.
+1.  [`chisel`](https://book.getfoundry.sh/reference/chisel/): a Solidity REPL to test Solidity snippets on a 
+    local or forked network.
 
 ## Installation
 
@@ -68,15 +59,15 @@ For example, block numbers must be in hex representation in JSON-RPC requests:
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "method": "eth_getLogs",
-    "params": [
-        {
-            "fromBlock": "0x1589e80",
-            "toBlock": "0x1589e80"
-        }
-    ],
-    "id": 0
+  "jsonrpc": "2.0",
+  "method": "eth_getLogs",
+  "params": [
+    {
+      "fromBlock": "0x1589e80",
+      "toBlock": "0x1589e80"
+    }
+  ],
+  "id": 0
 }
 ```
 
