@@ -1,17 +1,18 @@
 # Foundry (Cheat Sheet)
 
-This is a cheat sheet on Foundry (mostly notes-to-self). They are incomplete by default.
+> [!INFO]  
+> This is a cheat sheet on Foundry (mostly notes-to-self). They are incomplete by default.
 
 Foundry has four main binaries:
 
-1.  [`cast`](https://book.getfoundry.sh/reference/cast/): a CLI for performing Ethereum RPC calls, smart
-    contract calls, send transactions, or retrieve any type of chain data.
-1.  [`forge`](https://book.getfoundry.sh/reference/forge/): a developer tool to test, build, and deploy smart
-    contracts.
-1.  [`anvil`](https://book.getfoundry.sh/reference/anvil/): a local testnet node for testing contracts from
-    frontends or for interacting over RPC.
-1.  [`chisel`](https://book.getfoundry.sh/reference/chisel/): a Solidity REPL to test Solidity snippets on a 
-    local or forked network.
+1.  [`cast`](https://book.getfoundry.sh/reference/cast/): a CLI for performing Ethereum RPC calls,
+    smart contract calls, send transactions, or retrieve any type of chain data.
+1.  [`forge`](https://book.getfoundry.sh/reference/forge/): a developer tool to test, build, and
+    deploy smart contracts.
+1.  [`anvil`](https://book.getfoundry.sh/reference/anvil/): a local testnet node for testing
+    contracts from frontends or for interacting over RPC.
+1.  [`chisel`](https://book.getfoundry.sh/reference/chisel/): a Solidity REPL to test Solidity
+    snippets on a local or forked network.
 
 ## Installation
 
@@ -156,7 +157,8 @@ $ cast call 0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c "getWhitelist() (address[
 [0x765DE816845861e75A25fCA122bb6898B8B1282a, 0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73, 0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787, 0x73F93dcc49cB8A239e2032663e9475dd5ef29A08]
 ```
 
-> [!TIP] Find RPC URLs for Celo at
+> [!TIP]  
+> Find RPC URLs for Celo at
 > [docs.celo.org/network/node/forno](https://docs.celo.org/network/node/forno)https://docs.celo.org/network/node/forno
 
 ### Get event logs
