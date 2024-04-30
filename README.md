@@ -338,3 +338,16 @@ $ cast base-fee -r https://forno.celo.org
 ```sh
 forge create [OPTIONS] `<path>:<contractname>`
 ```
+
+## `anvil`
+
+### Create local Alfajores testnet 
+
+Source: [`anvil`](https://book.getfoundry.sh/reference/anvil/)
+
+```sh
+$ anvil \
+--fork-url https://alfajores-forno.celo-testnet.org  \
+--chain-id 44787 \
+--derivation-path "m/44'/52752'/0'/0"
+```
