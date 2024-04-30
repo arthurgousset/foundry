@@ -14,6 +14,10 @@ Foundry has four main binaries:
 1.  [`chisel`](https://book.getfoundry.sh/reference/chisel/): a Solidity REPL to test Solidity
     snippets on a local or forked network.
 
+Other cheat sheets:
+
+- [github.com/dabit3/foundry-cheatsheet](https://github.com/dabit3/foundry-cheatsheet)
+
 ## Installation
 
 Running `foundryup` by itself will install the latest
