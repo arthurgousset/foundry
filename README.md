@@ -341,13 +341,120 @@ forge create [OPTIONS] `<path>:<contractname>`
 
 ## `anvil`
 
-### Create local Alfajores testnet 
+### Fork Alfajores testnet locally
 
 Source: [`anvil`](https://book.getfoundry.sh/reference/anvil/)
+
+Use Forno's [Alfajores RPC endpoint](https://docs.celo.org/network/node/forno) and the Celo
+derivation path `m/44'/52752'/0'/0` to create a local fork of Celo's Alfajores testnet from block
+`23821073` onwards.
 
 ```sh
 $ anvil \
 --fork-url https://alfajores-forno.celo-testnet.org  \
 --chain-id 44787 \
---derivation-path "m/44'/52752'/0'/0"
+--derivation-path "m/44'/52752'/0'/0" \
+--fork-block-number 23821073
+
+
+
+                             _   _
+                            (_) | |
+      __ _   _ __   __   __  _  | |
+     / _` | | '_ \  \ \ / / | | | |
+    | (_| | | | | |  \ V /  | | | |
+     \__,_| |_| |_|   \_/   |_| |_|
+
+    0.2.0 (1a2e2e0 2023-11-14T00:27:18.096233000Z)
+    https://github.com/foundry-rs/foundry
+
+Available Accounts
+==================
+
+(0) "0xf73d7f5A890a131f12E4fB03E50277c49748Cf5E" (10000.000000000000000000 ETH)
+(1) "0x2ee6F1cB802695F64D0A81284b36179f2886E7C2" (10000.000000000000000000 ETH)
+(2) "0xb5BFF06391c11F3a741b2537843bF2E9Cfa33f5e" (10000.000000000000000000 ETH)
+(3) "0x4a6D53025bD680b8d5fF20304d778f35D07A1097" (10000.000000000000000000 ETH)
+(4) "0x2944B530F868744695B4F1556d034305b1ACe965" (10000.000000000000000000 ETH)
+(5) "0x5a5A7Fc1f97a1BAC1f5D076C1D05713f2047bAC6" (10000.000000000000000000 ETH)
+(6) "0x5722238acD9616CB347667260CC50ab5C324313A" (10000.000000000000000000 ETH)
+(7) "0x6f66a5A7266bf4369206B4cb429C766091cBb638" (10000.000000000000000000 ETH)
+(8) "0xEfEDc43B6B85B5A39c9e169c35C3081ff1E93ABC" (10000.000000000000000000 ETH)
+(9) "0x6A6b41338655124d003264Eaafc19F9A1F0c5d15" (10000.000000000000000000 ETH)
+
+Private Keys
+==================
+
+(0) 0x3fd3e63b553fd867fe35edd22b1bafc8d558867fc06c076485a30ff1d496de19
+(1) 0x8f8cc2047adcd5b893e500fea58ddc4a7b49988ff034dc28f36a42c816d27511
+(2) 0xf725a5d3fed9302c297d9d2406d5b478dcc2df800c869566b7870bc482b0cf92
+(3) 0xe97627e642b5f615372dcabc1ab44a87e5c90a1a83d0269796a4d71261514089
+(4) 0xbbf7a9d64a98c1e0d3a2bc042ea3eb6f7bfa549891573919bf245d36edb17ea9
+(5) 0xae81fa8e73f06d9a75c89a37a75e54b2b60dd458436c9ebcf7b3702e24a164cf
+(6) 0x2464448c27833b308d525fc347465d5e9d1a2f5d20793120c165af42e41c3a54
+(7) 0x3651517c0b89893a22d7ee74a15b71a37259b38d81aa562b1510f904a936f084
+(8) 0xfc27445e842236a857262c319e27c60caf0ee94b93da351989ea2eb2b3383aca
+(9) 0xe9a06f4db985213b6737ecd0155ca9b6373204d1999a69715c693ad893ff7f9b
+
+Wallet
+==================
+Mnemonic:          test test test test test test test test test test test junk
+Derivation path:   m/44'/52752'/0'/0/
+
+
+Fork
+==================
+Endpoint:       https://alfajores-forno.celo-testnet.org
+Block number:   23821073
+Block hash:     0x260fd28a5163f9b8917ea9dd6cda0fa95a0b7ef343aa294884b8e5ea64d1d181
+Chain ID:       44787
+
+Base Fee
+==================
+
+5000000000
+
+Gas Limit
+==================
+
+30000000
+
+Genesis Timestamp
+==================
+
+1714498258
+
+Listening on 127.0.0.1:8545
+```
+
+You can now can make transfers and fetch account balances on the local fork:
+
+```sh
+$ cast send \
+0x2ee6F1cB802695F64D0A81284b36179f2886E7C2 \
+--value 1ether \
+--private-key 0x3fd3e63b553fd867fe35edd22b1bafc8d558867fc06c076485a30ff1d496de19 \
+--rpc-url http://127.0.0.1:8545/
+
+blockHash               0xfe1fc68c97cd2dde21552a3b6f6e978d9b478d050c4efb4c289473ec33728fe4
+blockNumber             23820583
+contractAddress
+cumulativeGasUsed       21000
+effectiveGasPrice       5379574965
+gasUsed                 21000
+logs                    []
+logsBloom               0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+root
+status                  1
+transactionHash         0x584f483f0e7756efcc01a3603a55fc97237a04f6e428105f6891470150aa8b9c
+transactionIndex        0
+type
+```
+
+```sh
+$ cast balance \
+0x2ee6F1cB802695F64D0A81284b36179f2886E7C2 \
+--rpc-url http://127.0.0.1:8545/ \
+--ether
+10001.000000000000000000
 ```
