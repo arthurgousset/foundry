@@ -25,6 +25,36 @@ Source: [book.getfoundry.sh](https://book.getfoundry.sh/getting-started/installa
 
 ## `cast`
 
+### Create transaction (transfer or contract call)
+
+Source: [`cast send`](https://book.getfoundry.sh/reference/cast/cast-send)
+
+For example:
+
+```sh
+cast send \
+0x2ee6F1cB802695F64D0A81284b36179f2886E7C2 \
+--value 1ether \
+--private-key $PRIVATE_KEY \
+--rpc-url http://127.0.0.1:8545/
+```
+
+### Get balance of an address
+
+Source: [`cast balance`](https://book.getfoundry.sh/reference/cast/cast-balance)
+
+`--ether` to display the balance in `ether` instead of `wei`.
+
+For example:
+
+```sh
+$ cast balance \
+0x2ee6F1cB802695F64D0A81284b36179f2886E7C2 \
+--rpc-url http://127.0.0.1:8545/ \
+--ether
+10001.000000000000000000
+```
+
 ### Generate event signature
 
 Source:
