@@ -18,7 +18,7 @@ Other cheat sheets:
 
 - [github.com/dabit3/foundry-cheatsheet](https://github.com/dabit3/foundry-cheatsheet)
 
-## Installation
+## Installation (`foundryup`)
 
 Running `foundryup` by itself will install the latest
 (nightly) [precompiled binaries](https://book.getfoundry.sh/getting-started/installation#precompiled-binaries): `forge`, `cast`, `anvil`,
@@ -26,6 +26,44 @@ and `chisel`. See `foundryup --help` for more options, like installing from a
 commit.
 
 Source: [book.getfoundry.sh](https://book.getfoundry.sh/getting-started/installation)
+
+### Check the version
+
+```sh
+$ cast --version
+cast 0.2.0 (6b72a8c 2023-11-06T00:23:40.259531000Z)
+```
+
+### Install a specific version
+
+From a specific commit:
+
+```sh
+$ foundryup -C 2885b0d
+```
+
+Syntax:
+
+```sh
+$ foundryup --help
+The installer for Foundry.
+
+Update or revert to a specific Foundry version with ease.
+
+USAGE:
+    foundryup <OPTIONS>
+
+OPTIONS:
+    -h, --help      Print help information
+    -v, --version   Install a specific version
+    -b, --branch    Install a specific branch
+    -P, --pr        Install a specific Pull Request
+    -C, --commit    Install a specific commit
+    -r, --repo      Install from a remote GitHub repo (uses default branch if no other options are set)
+    -p, --path      Install a local repository
+    --arch          Install a specific architecture (supports amd64 and arm64)
+    --platform      Install a specific platform (supports win32, linux, and darwin)
+```
 
 ## `cast`
 
