@@ -535,3 +535,66 @@ $ cast balance \
 --ether
 10001.000000000000000000
 ```
+
+## `chisel` (REPL)
+
+Source: [`chisel`](https://book.getfoundry.sh/reference/chisel/)
+
+Syntax:
+
+```sh
+No solidity versions installed! Installing solidity version 0.8.19...
+Welcome to Chisel! Type `!help` to show available commands.
+⚒️ Chisel help
+=============
+General
+    !help | !h - Display all commands
+    !quit | !q - Quit Chisel
+    !exec <command> [args] | !e <command> [args] - Execute a shell command and print the output
+
+Session
+    !clear | !c - Clear current session source
+    !source | !so - Display the source code of the current session
+    !save [id] | !s [id] - Save the current session to cache
+    !load <id> | !l <id> - Load a previous session ID from cache
+    !list | !ls - List all cached sessions
+    !clearcache | !cc - Clear the chisel cache of all stored sessions
+    !export | !ex - Export the current session source to a script file
+    !fetch <addr> <name> | !fe <addr> <name> - Fetch the interface of a verified contract on Etherscan
+    !edit - Open the current session in an editor
+
+Environment
+    !fork <url> | !f <url> - Fork an RPC for the current session. Supply 0 arguments to return to a local network
+    !traces | !t - Enable / disable traces for the current session
+    !calldata [data] | !cd [data] - Set calldata (`msg.data`) for the current session (appended after function selector). Clears it if no argument provided.
+
+Debug
+    !memdump | !md - Dump the raw memory of the current state
+    !stackdump | !sd - Dump the raw stack of the current state
+    !rawstack <var> | !rs <var> - Display the raw value of a variable's stack allocation. For variables that are > 32 bytes in length, this will display their memory pointer.
+```
+
+
+For example:
+
+To translate this precompile address:
+
+```sh
+➜ address(0xff - 7)
+Type: address
+└ Data: 0x00000000000000000000000000000000000000f8
+```
+
+Source: [`UsingPrecompiles.sol`](https://github.com/celo-org/celo-monorepo/blob/cd987f334c9422e5e4a817b68a853efa7200aa7f/packages/protocol/contracts/common/UsingPrecompiles.sol#L14-L15)
+
+To run a REPL of a local anvil fork:
+
+```sh
+➜ !fork http://127.0.0.1:8546
+Set fork URL to http://127.0.0.1:8546
+
+➜ block.number
+Type: uint
+├ Hex: 0x0000000000000000000000000000000000000000000000000000000000000106
+└ Decimal: 262
+```
