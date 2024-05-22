@@ -67,11 +67,7 @@ OPTIONS:
 
 ## `cast`
 
-### Call smart contract function
-
-Source: [`cast call`](https://book.getfoundry.sh/reference/cast/cast-call)
-
-### Read contract call
+### Read (contract call)
 
 Source: [`cast call`](https://book.getfoundry.sh/reference/cast/cast-call)
 
@@ -126,7 +122,7 @@ $ cast call \
 > Find RPC URLs for Celo at
 > [docs.celo.org/network/node/forno](https://docs.celo.org/network/node/forno)https://docs.celo.org/network/node/forno
 
-### Write contract call
+### Write (contract call)
 
 Source: [`cast send`](https://book.getfoundry.sh/reference/cast/cast-send)
 
@@ -170,7 +166,7 @@ For example:
     5
     ```
 
-### Make native transfer
+### Transfer
 
 Source: [`cast send`](https://book.getfoundry.sh/reference/cast/cast-send)
 
