@@ -100,6 +100,42 @@ cast send \
 --rpc-url http://127.0.0.1:8545/
 ```
 
+### Decode 
+
+Source: [`cast abi-decode`](https://book.getfoundry.sh/reference/cast/cast-abi-decode)
+
+Decode ABI-encoded input or output data.
+
+Syntax:
+
+```sh
+$ cast abi-decode [options] sig calldata
+```
+
+The signature (*sig*) is a fragment in the form `<function name>(<types...>)(<types...>)`.
+
+For example:
+
+```sh
+$ cast abi-decode \
+"getAddressForStringOrDie(string calldata identifier)(address)" \
+"0x00000000000000000000000042fe5a2a61ed9705eb2f08a04a58ceb606d22f6a"
+
+0x42Fe5a2A61ed9705eb2F08a04A58CEB606D22f6a
+```
+
+Source: PR "[Add FeeCurrencyDirectory to Anvil migrations#10992](https://github.com/celo-org/celo-monorepo/pull/10992)"
+
+```sh
+$ cast abi-decode \
+"getCurrencies()(address[] memory)" \
+"0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000003000000000000000000000000e6774be4e5f97db10cafb4c00c74cfbdcdc434d9000000000000000000000000b7a33b4ad2b1f6b0a944232f5c71798d27ad92720000000000000000000000002a3733dbc31980f02b12135c809b5da33bf3a1e9"
+
+[0xe6774BE4E5f97dB10cAFB4c00C74cFbdCDc434D9, 0xb7a33b4ad2B1f6b0a944232F5c71798d27Ad9272, 0x2A3733dBc31980f02b12135C809b5da33BF3a1e9]
+```
+
+Source: PR "[Add FeeCurrencyDirectory to Anvil migrations#10992](https://github.com/celo-org/celo-monorepo/pull/10992)"
+
 ### Get balance of an address
 
 Source: [`cast balance`](https://book.getfoundry.sh/reference/cast/cast-balance)
