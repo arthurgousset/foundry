@@ -71,13 +71,54 @@ OPTIONS:
 
 Source: [`cast call`](https://book.getfoundry.sh/reference/cast/cast-call)
 
+### Read contract call
+
+Source: [`cast call`](https://book.getfoundry.sh/reference/cast/cast-call)
+
+For example:
+
+```sh
+$ cast call \
+0x000000000000000000000000000000000000ce10 \
+"getAddressForStringOrDie(string calldata identifier)" \
+"FeeCurrencyDirectory" \
+--rpc-url=http://127.0.0.1:8546
+
+0x00000000000000000000000042fe5a2a61ed9705eb2f08a04a58ceb606d22f6a
+
+$ cast abi-decode \
+"getAddressForStringOrDie(string calldata identifier)(address)" \
+"0x00000000000000000000000042fe5a2a61ed9705eb2f08a04a58ceb606d22f6a"
+
+0x42Fe5a2A61ed9705eb2F08a04A58CEB606D22f6a
+```
+
+```sh
+cast call \
+0xe6774BE4E5f97dB10cAFB4c00C74cFbdCDc434D9 \
+"name()" \
+--rpc-url=http://127.0.0.1:8546
+0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000b43656c6f20446f6c6c6172000000000000000000000000000000000000000000
+
+cast abi-decode \
+"name()(string memory)" \
+"0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000b43656c6f20446f6c6c6172000000000000000000000000000000000000000000"
+"Celo Dollar"
+```
+
+Source: PR "[Add FeeCurrencyDirectory to Anvil migrations#10992](https://github.com/celo-org/celo-monorepo/pull/10992)"
+
 Call the `getWhitelist()` function on the
 [`FeeCurrencyWhitelist.sol`](https://github.com/celo-org/celo-monorepo/blob/cc8c3448938f7ff3e1f4e7a5ab692904729dcdc9/packages/protocol/contracts/common/FeeCurrencyWhitelist.sol#L4)
 contract deployed at
 [`0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c`](https://celoscan.io/address/0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c).
 
 ```sh
-$ cast call 0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c "getWhitelist() (address[] memory)" --rpc-url='https://forno.celo.org'
+$ cast call \ 
+0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c \
+"getWhitelist()(address[] memory)" \
+--rpc-url='https://forno.celo.org'
+
 [0x765DE816845861e75A25fCA122bb6898B8B1282a, 0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73, 0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787, 0x73F93dcc49cB8A239e2032663e9475dd5ef29A08]
 ```
 
@@ -85,8 +126,51 @@ $ cast call 0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c "getWhitelist() (address[
 > Find RPC URLs for Celo at
 > [docs.celo.org/network/node/forno](https://docs.celo.org/network/node/forno)https://docs.celo.org/network/node/forno
 
+### Write contract call
 
-### Create transaction (transfer or contract call)
+Source: [`cast send`](https://book.getfoundry.sh/reference/cast/cast-send)
+
+For example:
+
+1. writing `setExchangeRate` function `FeeCurrencyDirectory.sol`
+
+    ```sh
+    cast send \
+    0x42Fe5a2A61ed9705eb2F08a04A58CEB606D22f6a \
+    "setExchangeRate(address,uint256,uint256)" \
+    0xe6774BE4E5f97dB10cAFB4c00C74cFbdCDc434D9 5 10 \
+    --private-key $PRIVATE_KEY \
+    --gas-limit 100000 \
+    --rpc-url=http://127.0.0.1:8546
+
+    blockHash               0x563f59930ea8dbbfda8d1076f5ed8ebee876ba45aeee9f4a7a103a68eee779ad
+    blockNumber             267
+    contractAddress
+    cumulativeGasUsed       27284
+    effectiveGasPrice       3000000008
+    gasUsed                 27284
+    logs                    []
+    logsBloom               0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    root
+    status                  0
+    transactionHash         0xae17f552d46eb6a580ed41722ea7cac844c61717b00cb505ddf0d3dae68bcc40
+    transactionIndex        0
+    type                    2
+    ```
+
+    You can see the values have been written correctly:
+
+    ```sh
+    cast call \
+    0x42Fe5a2A61ed9705eb2F08a04A58CEB606D22f6a \
+    "getExchangeRate(address)(uint256, uint256)" \
+    "0xe6774BE4E5f97dB10cAFB4c00C74cFbdCDc434D9" \
+    --rpc-url=http://127.0.0.1:8546
+    10
+    5
+    ```
+
+### Make native transfer
 
 Source: [`cast send`](https://book.getfoundry.sh/reference/cast/cast-send)
 
