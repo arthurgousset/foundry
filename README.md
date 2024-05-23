@@ -490,11 +490,62 @@ $ cast base-fee -r https://forno.celo.org
 
 ## `forge`
 
-### Deploy contract
+### Build contract
+
+Source: [`forge build`](https://book.getfoundry.sh/reference/forge/forge-build)
+
+Syntax:
 
 ```sh
-forge create [OPTIONS] `<path>:<contractname>`
+forge build [options]
 ```
+
+The command will try to detect the latest version that can compile your project by looking at the version requirements of all your contracts and dependencies.
+
+The build is incremental, and the build cache is saved in `cache/` in the project root by default. If you want to clear the cache, pass `--force`, and if you want to change the cache directory, pass `--cache-path <PATH>`.
+
+There are three build modes:
+
+-   Just compilation (default): Builds the project and saves the contract artifacts in `out/` (or the path specified by `--out <PATH>`).
+-   Size mode (`--sizes`): Builds the project, displays the size of non-test contracts and exits with code 1 if any of them are above the size limit.
+-   Name mode (`--names`): Builds the project, displays the names of the contracts and exits.
+
+### Deploy contract
+
+Source: [`forge create`](https://book.getfoundry.sh/reference/forge/forge-create)
+
+Syntax: 
+
+```sh
+forge create [options] contract
+```
+
+The path to the contract is in the format `<path>:<contract>`, e.g. `src/Contract.sol:Contract`.
+
+For example:
+
+```sh
+forge create \
+"contracts/common/Signatures.sol:Signatures" \
+--from 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 \
+--unlocked \
+--json \
+--rpc-url http://127.0.0.1:8546
+```
+
+[Display Options](https://book.getfoundry.sh/reference/forge/forge-create#display-options)
+
+`-j` `--json`: Print the deployment information as JSON.
+
+[Wallet Options - Remote](https://book.getfoundry.sh/reference/forge/forge-create#wallet-options---remote)
+
+`-f` `--from` *address*: Sign the transaction with the specified account on the RPC.
+
+### Scripting (`{{}}.s.sol`)
+
+Source: Foundry book > [Solidity scripting](https://book.getfoundry.sh/tutorials/solidity-scripting?highlight=deploy()#deploying-our-contract)
+
+For example: 
 
 ## `anvil`
 
