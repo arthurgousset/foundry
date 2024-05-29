@@ -541,6 +541,37 @@ forge create \
 
 `-f` `--from` *address*: Sign the transaction with the specified account on the RPC.
 
+### Test 
+
+Source: [`forge test`](https://book.getfoundry.sh/reference/forge/forge-test)
+
+Example:
+
+```sh
+forge test \
+--match-path test/Contract.t.sol \
+--match-contract BigTest \
+--match-test "testFail*"
+```
+
+Given `test`/`Contract.t.sol`
+
+```sol
+// `Contract.t.sol`
+
+contract BigTest {
+  address sender = actor("sender");
+
+  function setUp() public {}
+
+  function testFail() public {
+    console.log("This test should fail");
+    assert(false);
+  }
+}
+```
+
+
 ### Scripting (`{{}}.s.sol`)
 
 Source: Foundry book > [Solidity scripting](https://book.getfoundry.sh/tutorials/solidity-scripting?highlight=deploy()#deploying-our-contract)
