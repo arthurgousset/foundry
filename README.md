@@ -541,7 +541,7 @@ forge create \
 
 `-f` `--from` *address*: Sign the transaction with the specified account on the RPC.
 
-### Test 
+### Test `Contract.t.sol`
 
 Source: [`forge test`](https://book.getfoundry.sh/reference/forge/forge-test)
 
@@ -571,12 +571,36 @@ contract BigTest {
 }
 ```
 
+### Clean cache and other artifacts
 
-### Scripting (`{{}}.s.sol`)
+Source: [`forge clean`](https://book.getfoundry.sh/reference/forge/forge-clean)
+
+Removes the build artifacts and cache directories.
+
+```sh
+forge clean 
+```
+
+Source: [`forge cache clean`](https://book.getfoundry.sh/reference/forge/forge-cache-clean)
+
+Cleans cached data from `~/.foundry`.
+
+```sh
+forge cache clean
+```
+
+Source: [`forge cache ls`](https://book.getfoundry.sh/reference/forge/forge-cache-ls)
+
+Shows cached data from `~/.foundry`.
+
+```sh
+forge cache ls
+```
+
+### Scripting `Script.s.sol`
 
 Source: Foundry book > [Solidity scripting](https://book.getfoundry.sh/tutorials/solidity-scripting?highlight=deploy()#deploying-our-contract)
 
-For example: 
 
 ## `anvil`
 
@@ -760,3 +784,21 @@ Type: uint
 ├ Hex: 0x0000000000000000000000000000000000000000000000000000000000000106
 └ Decimal: 262
 ```
+
+## Cheatcodes
+
+Source: [foundry](https://book.getfoundry.sh/cheatcodes/)
+
+Cheatcode address: `0x7109709ECfa91a80626fF3989D68f67F5b1DD12D`.
+
+Cheatcodes allows you to alter the state of the EVM, mock data, make assertions and more.
+
+-   [Environment](https://book.getfoundry.sh/cheatcodes/environment.html): Cheatcodes that alter the state of the EVM.
+-   [Assertions](https://book.getfoundry.sh/cheatcodes/assertions.html): Cheatcodes that are powerful assertions
+-   [Fuzzer](https://book.getfoundry.sh/cheatcodes/fuzzer.html): Cheatcodes that configure the fuzzer
+-   [External](https://book.getfoundry.sh/cheatcodes/external.html): Cheatcodes that interact with external state (files, commands, ...)
+-   [Utilities](https://book.getfoundry.sh/cheatcodes/utilities.html): Smaller utility cheatcodes
+-   [Forking](https://book.getfoundry.sh/cheatcodes/forking.html): Forking mode cheatcodes
+-   [Snapshots](https://book.getfoundry.sh/cheatcodes/snapshots.html): Snapshot cheatcodes
+-   [RPC](https://book.getfoundry.sh/cheatcodes/rpc.html): RPC related cheatcodes
+-   [File](https://book.getfoundry.sh/cheatcodes/fs.html): Cheatcodes for working with files
