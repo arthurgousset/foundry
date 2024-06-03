@@ -34,9 +34,17 @@ $ cast --version
 cast 0.2.0 (6b72a8c 2023-11-06T00:23:40.259531000Z)
 ```
 
+### Upgrade to latest version
+
+```sh
+foundryup
+```
+
 ### Install a specific version
 
-From a specific commit:
+Precompiled binaries are available from the [GitHub releases page](https://github.com/foundry-rs/foundry/releases).
+
+Install from a specific commit:
 
 ```sh
 $ foundryup -C 2885b0d
@@ -546,6 +554,13 @@ forge create \
 Source: [`forge test`](https://book.getfoundry.sh/reference/forge/forge-test)
 
 Example:
+
+```sh
+forge test \
+--match-path test/Contract.t.sol \
+--match-contract BigTest \
+--match-test "testFail*"
+```
 
 ```sh
 forge test \
