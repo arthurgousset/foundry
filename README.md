@@ -42,7 +42,8 @@ foundryup
 
 ### Install a specific version
 
-Precompiled binaries are available from the [GitHub releases page](https://github.com/foundry-rs/foundry/releases).
+Precompiled binaries are available from
+the [GitHub releases page](https://github.com/foundry-rs/foundry/releases).
 
 Install from a specific commit:
 
@@ -110,7 +111,8 @@ cast abi-decode \
 "Celo Dollar"
 ```
 
-Source: PR "[Add FeeCurrencyDirectory to Anvil migrations#10992](https://github.com/celo-org/celo-monorepo/pull/10992)"
+Source: PR
+"[Add FeeCurrencyDirectory to Anvil migrations#10992](https://github.com/celo-org/celo-monorepo/pull/10992)"
 
 Call the `getWhitelist()` function on the
 [`FeeCurrencyWhitelist.sol`](https://github.com/celo-org/celo-monorepo/blob/cc8c3448938f7ff3e1f4e7a5ab692904729dcdc9/packages/protocol/contracts/common/FeeCurrencyWhitelist.sol#L4)
@@ -118,7 +120,7 @@ contract deployed at
 [`0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c`](https://celoscan.io/address/0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c).
 
 ```sh
-$ cast call \ 
+$ cast call \
 0xbb024e9cdcb2f9e34d893630d19611b8a5381b3c \
 "getWhitelist()(address[] memory)" \
 --rpc-url='https://forno.celo.org'
@@ -138,41 +140,41 @@ For example:
 
 1. writing `setExchangeRate` function `FeeCurrencyDirectory.sol`
 
-    ```sh
-    cast send \
-    0x42Fe5a2A61ed9705eb2F08a04A58CEB606D22f6a \
-    "setExchangeRate(address,uint256,uint256)" \
-    0xe6774BE4E5f97dB10cAFB4c00C74cFbdCDc434D9 5 10 \
-    --private-key $PRIVATE_KEY \
-    --gas-limit 100000 \
-    --rpc-url=http://127.0.0.1:8546
+   ```sh
+   cast send \
+   0x42Fe5a2A61ed9705eb2F08a04A58CEB606D22f6a \
+   "setExchangeRate(address,uint256,uint256)" \
+   0xe6774BE4E5f97dB10cAFB4c00C74cFbdCDc434D9 5 10 \
+   --private-key $PRIVATE_KEY \
+   --gas-limit 100000 \
+   --rpc-url=http://127.0.0.1:8546
 
-    blockHash               0x563f59930ea8dbbfda8d1076f5ed8ebee876ba45aeee9f4a7a103a68eee779ad
-    blockNumber             267
-    contractAddress
-    cumulativeGasUsed       27284
-    effectiveGasPrice       3000000008
-    gasUsed                 27284
-    logs                    []
-    logsBloom               0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    root
-    status                  0
-    transactionHash         0xae17f552d46eb6a580ed41722ea7cac844c61717b00cb505ddf0d3dae68bcc40
-    transactionIndex        0
-    type                    2
-    ```
+   blockHash               0x563f59930ea8dbbfda8d1076f5ed8ebee876ba45aeee9f4a7a103a68eee779ad
+   blockNumber             267
+   contractAddress
+   cumulativeGasUsed       27284
+   effectiveGasPrice       3000000008
+   gasUsed                 27284
+   logs                    []
+   logsBloom               0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+   root
+   status                  0
+   transactionHash         0xae17f552d46eb6a580ed41722ea7cac844c61717b00cb505ddf0d3dae68bcc40
+   transactionIndex        0
+   type                    2
+   ```
 
-    You can see the values have been written correctly:
+   You can see the values have been written correctly:
 
-    ```sh
-    cast call \
-    0x42Fe5a2A61ed9705eb2F08a04A58CEB606D22f6a \
-    "getExchangeRate(address)(uint256, uint256)" \
-    "0xe6774BE4E5f97dB10cAFB4c00C74cFbdCDc434D9" \
-    --rpc-url=http://127.0.0.1:8546
-    10
-    5
-    ```
+   ```sh
+   cast call \
+   0x42Fe5a2A61ed9705eb2F08a04A58CEB606D22f6a \
+   "getExchangeRate(address)(uint256, uint256)" \
+   "0xe6774BE4E5f97dB10cAFB4c00C74cFbdCDc434D9" \
+   --rpc-url=http://127.0.0.1:8546
+   10
+   5
+   ```
 
 ### Transfer
 
@@ -188,7 +190,7 @@ cast send \
 --rpc-url http://127.0.0.1:8545/
 ```
 
-### Decode 
+### Decode
 
 Source: [`cast abi-decode`](https://book.getfoundry.sh/reference/cast/cast-abi-decode)
 
@@ -200,7 +202,7 @@ Syntax:
 $ cast abi-decode [options] sig calldata
 ```
 
-The signature (*sig*) is a fragment in the form `<function name>(<types...>)(<types...>)`.
+The signature (_sig_) is a fragment in the form `<function name>(<types...>)(<types...>)`.
 
 For example:
 
@@ -212,7 +214,8 @@ $ cast abi-decode \
 0x42Fe5a2A61ed9705eb2F08a04A58CEB606D22f6a
 ```
 
-Source: PR "[Add FeeCurrencyDirectory to Anvil migrations#10992](https://github.com/celo-org/celo-monorepo/pull/10992)"
+Source: PR
+"[Add FeeCurrencyDirectory to Anvil migrations#10992](https://github.com/celo-org/celo-monorepo/pull/10992)"
 
 ```sh
 $ cast abi-decode \
@@ -222,7 +225,8 @@ $ cast abi-decode \
 [0xe6774BE4E5f97dB10cAFB4c00C74cFbdCDc434D9, 0xb7a33b4ad2B1f6b0a944232F5c71798d27Ad9272, 0x2A3733dBc31980f02b12135C809b5da33BF3a1e9]
 ```
 
-Source: PR "[Add FeeCurrencyDirectory to Anvil migrations#10992](https://github.com/celo-org/celo-monorepo/pull/10992)"
+Source: PR
+"[Add FeeCurrencyDirectory to Anvil migrations#10992](https://github.com/celo-org/celo-monorepo/pull/10992)"
 
 ### Get balance of an address
 
@@ -508,21 +512,26 @@ Syntax:
 forge build [options]
 ```
 
-The command will try to detect the latest version that can compile your project by looking at the version requirements of all your contracts and dependencies.
+The command will try to detect the latest version that can compile your project by looking at the
+version requirements of all your contracts and dependencies.
 
-The build is incremental, and the build cache is saved in `cache/` in the project root by default. If you want to clear the cache, pass `--force`, and if you want to change the cache directory, pass `--cache-path <PATH>`.
+The build is incremental, and the build cache is saved in `cache/` in the project root by default.
+If you want to clear the cache, pass `--force`, and if you want to change the cache directory,
+pass `--cache-path <PATH>`.
 
 There are three build modes:
 
--   Just compilation (default): Builds the project and saves the contract artifacts in `out/` (or the path specified by `--out <PATH>`).
--   Size mode (`--sizes`): Builds the project, displays the size of non-test contracts and exits with code 1 if any of them are above the size limit.
--   Name mode (`--names`): Builds the project, displays the names of the contracts and exits.
+- Just compilation (default): Builds the project and saves the contract artifacts in `out/` (or the
+  path specified by `--out <PATH>`).
+- Size mode (`--sizes`): Builds the project, displays the size of non-test contracts and exits with
+  code 1 if any of them are above the size limit.
+- Name mode (`--names`): Builds the project, displays the names of the contracts and exits.
 
 ### Deploy contract
 
 Source: [`forge create`](https://book.getfoundry.sh/reference/forge/forge-create)
 
-Syntax: 
+Syntax:
 
 ```sh
 forge create [options] contract
@@ -593,7 +602,7 @@ Source: [`forge clean`](https://book.getfoundry.sh/reference/forge/forge-clean)
 Removes the build artifacts and cache directories.
 
 ```sh
-forge clean 
+forge clean
 ```
 
 Source: [`forge cache clean`](https://book.getfoundry.sh/reference/forge/forge-cache-clean)
@@ -614,8 +623,8 @@ forge cache ls
 
 ### Scripting `Script.s.sol`
 
-Source: Foundry book > [Solidity scripting](https://book.getfoundry.sh/tutorials/solidity-scripting?highlight=deploy()#deploying-our-contract)
-
+Source: Foundry book >
+[Solidity scripting](<https://book.getfoundry.sh/tutorials/solidity-scripting?highlight=deploy()#deploying-our-contract>)
 
 ## `anvil`
 
@@ -775,7 +784,6 @@ Debug
     !rawstack <var> | !rs <var> - Display the raw value of a variable's stack allocation. For variables that are > 32 bytes in length, this will display their memory pointer.
 ```
 
-
 For example:
 
 To translate this precompile address:
@@ -786,7 +794,8 @@ Type: address
 └ Data: 0x00000000000000000000000000000000000000f8
 ```
 
-Source: [`UsingPrecompiles.sol`](https://github.com/celo-org/celo-monorepo/blob/cd987f334c9422e5e4a817b68a853efa7200aa7f/packages/protocol/contracts/common/UsingPrecompiles.sol#L14-L15)
+Source:
+[`UsingPrecompiles.sol`](https://github.com/celo-org/celo-monorepo/blob/cd987f334c9422e5e4a817b68a853efa7200aa7f/packages/protocol/contracts/common/UsingPrecompiles.sol#L14-L15)
 
 To run a REPL of a local anvil fork:
 
@@ -808,12 +817,35 @@ Cheatcode address: `0x7109709ECfa91a80626fF3989D68f67F5b1DD12D`.
 
 Cheatcodes allows you to alter the state of the EVM, mock data, make assertions and more.
 
--   [Environment](https://book.getfoundry.sh/cheatcodes/environment.html): Cheatcodes that alter the state of the EVM.
--   [Assertions](https://book.getfoundry.sh/cheatcodes/assertions.html): Cheatcodes that are powerful assertions
--   [Fuzzer](https://book.getfoundry.sh/cheatcodes/fuzzer.html): Cheatcodes that configure the fuzzer
--   [External](https://book.getfoundry.sh/cheatcodes/external.html): Cheatcodes that interact with external state (files, commands, ...)
--   [Utilities](https://book.getfoundry.sh/cheatcodes/utilities.html): Smaller utility cheatcodes
--   [Forking](https://book.getfoundry.sh/cheatcodes/forking.html): Forking mode cheatcodes
--   [Snapshots](https://book.getfoundry.sh/cheatcodes/snapshots.html): Snapshot cheatcodes
--   [RPC](https://book.getfoundry.sh/cheatcodes/rpc.html): RPC related cheatcodes
--   [File](https://book.getfoundry.sh/cheatcodes/fs.html): Cheatcodes for working with files
+- [Environment](https://book.getfoundry.sh/cheatcodes/environment.html): Cheatcodes that alter the
+  state of the EVM.
+- [Assertions](https://book.getfoundry.sh/cheatcodes/assertions.html): Cheatcodes that are powerful
+  assertions
+- [Fuzzer](https://book.getfoundry.sh/cheatcodes/fuzzer.html): Cheatcodes that configure the fuzzer
+- [External](https://book.getfoundry.sh/cheatcodes/external.html): Cheatcodes that interact with
+  external state (files, commands, ...)
+- [Utilities](https://book.getfoundry.sh/cheatcodes/utilities.html): Smaller utility cheatcodes
+- [Forking](https://book.getfoundry.sh/cheatcodes/forking.html): Forking mode cheatcodes
+- [Snapshots](https://book.getfoundry.sh/cheatcodes/snapshots.html): Snapshot cheatcodes
+- [RPC](https://book.getfoundry.sh/cheatcodes/rpc.html): RPC related cheatcodes
+- [File](https://book.getfoundry.sh/cheatcodes/fs.html): Cheatcodes for working with files
+
+#### `vm.prank(address)`
+
+Sets `msg.sender` to the specified address **for the next call**. "The next call" includes static
+calls as well, but not calls to the cheat code address.
+
+Signature:
+
+```sol
+function prank(address) external;
+```
+
+```sol
+/// function withdraw() public {
+///     require(msg.sender == owner);
+
+address owner = "0x...";
+vm.prank(owner);
+myContract.withdraw(); // [PASS]
+```
