@@ -830,7 +830,7 @@ Cheatcodes allows you to alter the state of the EVM, mock data, make assertions 
 - [RPC](https://book.getfoundry.sh/cheatcodes/rpc.html): RPC related cheatcodes
 - [File](https://book.getfoundry.sh/cheatcodes/fs.html): Cheatcodes for working with files
 
-#### `vm.prank(address)`
+### `vm.prank(address)`
 
 Sets `msg.sender` to the specified address **for the next call**. "The next call" includes static
 calls as well, but not calls to the cheat code address.
@@ -848,4 +848,55 @@ function prank(address) external;
 address owner = "0x...";
 vm.prank(owner);
 myContract.withdraw(); // [PASS]
+```
+
+### `vm.deal(address, newBalance)`
+
+Source: [`vm.deal`](https://book.getfoundry.sh/cheatcodes/deal)
+
+Sets the balance of an address `who` to `newBalance`.
+
+Signature:
+
+```sol
+function deal(address who, uint256 newBalance) external;
+```
+
+For example:
+
+```sol
+address alice = makeAddr("alice");
+emit log_address(alice);
+vm.deal(alice, 1 ether);
+log_uint256(alice.balance); // 1000000000000000000
+```
+
+If the [alternative signature of `deal`](https://book.getfoundry.sh/reference/forge-std/deal) is
+used (defined in [`StdCheats.sol`](https://book.getfoundry.sh/reference/forge-std)), then we can
+additionally specify ERC20 token address, as well as an option to update `totalSupply`.
+
+Alternative signature:
+
+```sol
+function deal(address to, uint256 give) public;
+function deal(address token, address to, uint256 give) public;
+function deal(address token, address to, uint256 give, bool adjust) public;
+```
+
+A wrapper around the [`deal`](https://book.getfoundry.sh/cheatcodes/deal.html) cheatcode that also
+works for most ERC-20 tokens. If the alternative signature of `deal` is used, adjusts the token's
+total supply after setting the balance.
+
+For example:
+
+```sol
+address alice = makeAddr("alice");
+emit log_address(alice);
+deal(address(DAI), alice, 1 ether); // import StdUtils.sol first
+log_uint256(address(DAI).balanceOf(alice)); // 1000000000000000000
+```
+
+```sol
+deal(address(dai), alice, 10000e18);
+assertEq(dai.balanceOf(alice), 10000e18);
 ```
