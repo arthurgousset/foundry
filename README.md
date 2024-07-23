@@ -11,7 +11,7 @@ Foundry has four main binaries:
     deploy smart contracts.
 1.  [`anvil`](https://book.getfoundry.sh/reference/anvil/): a local testnet node for testing
     contracts from frontends or for interacting over RPC.
-1.  [`chisel`](https://book.getfoundry.sh/reference/chisel/): a Solidity REPL to test Solidity
+1.  [`chisel`](https://book.getfoundry.sh/reference/cli/chisel): a Solidity REPL to test Solidity
     snippets on a local or forked network.
 
 Other cheat sheets:
