@@ -809,6 +809,14 @@ Type: uint
 └ Decimal: 262
 ```
 
+### Use specific `solc` version
+
+Source: [foundry](https://book.getfoundry.sh/reference/cli/chisel)
+
+```sh
+chisel --use "0.5.14" --evm-version "istanbul"
+```
+
 ## Cheatcodes
 
 Source: [foundry](https://book.getfoundry.sh/cheatcodes/)
